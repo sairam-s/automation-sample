@@ -6,6 +6,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -15,7 +16,9 @@ public class Base {
     public WebDriver initialiseDriver() throws IOException {
 
         Properties prop = new Properties();
-        FileInputStream is = new FileInputStream("E:\\Project\\automation-sample\\src\\main\\java\\com\\automation\\application.properties");
+        InputStream is = getClass()
+                .getClassLoader().getResourceAsStream("application.properties");
+      //  FileInputStream is = new FileInputStream("E:\\Project\\automation-sample\\src\\main\\java\\com\\automation\\application.properties");
         prop.load(is);
         String browser = prop.getProperty("browser").toLowerCase();
         if (browser.equals("chrome")) {

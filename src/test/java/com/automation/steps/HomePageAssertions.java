@@ -34,5 +34,6 @@ public class HomePageAssertions extends Base {
     public void teardown() {
         log.info("Closing the browser");
         driver.quit();
+        driver=null;
     }
 }

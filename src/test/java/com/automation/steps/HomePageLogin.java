@@ -54,5 +54,6 @@ log.info("Navigated to login page");
     public void teardown() {
         log.info("Closing the browser");
         driver.quit();
+        driver=null;
     }
 }

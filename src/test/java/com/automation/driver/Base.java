@@ -1,10 +1,9 @@
-package com.automation;
+package com.automation.driver;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -12,13 +11,12 @@ import java.util.concurrent.TimeUnit;
 
 public class Base {
     public WebDriver driver;
+    public Properties prop = new Properties();
 
     public WebDriver initialiseDriver() throws IOException {
-
-        Properties prop = new Properties();
         InputStream is = getClass()
                 .getClassLoader().getResourceAsStream("application.properties");
-      //  FileInputStream is = new FileInputStream("E:\\Project\\automation-sample\\src\\main\\java\\com\\automation\\application.properties");
+        //  FileInputStream is = new FileInputStream("E:\\Project\\automation-sample\\src\\main\\java\\com\\automation\\application.properties");
         prop.load(is);
         String browser = prop.getProperty("browser").toLowerCase();
         if (browser.equals("chrome")) {
@@ -30,9 +28,8 @@ public class Base {
         } else {
             System.out.println("No browser defined");
         }
-driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         return driver;
-
     }
 
 }

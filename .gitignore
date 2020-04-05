@@ -1,8 +1,8 @@
 .idea/**
 /target/
 *.iml
-/logs/
-/screenshots/
+/logs/*
+/screenshots/*
 
 #exception to the images rule
 !/logs/.gitkeep

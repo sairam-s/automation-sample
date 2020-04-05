@@ -1,11 +1,14 @@
 package com.automation.driver;
 
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -32,4 +35,12 @@ public class Base {
         return driver;
     }
 
+    public void captureScreenshot(String testName){
+       File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        try {
+            FileUtils.copyFile(src, new File("E:\\Project\\automation-sample\\screenshots\\"+testName+"-screenshot.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

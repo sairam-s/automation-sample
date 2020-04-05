@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 
 public class HomePageLogin extends Base {
-public static Logger log = LogManager.getLogger(HomePageLogin.class.getName());
+    public static Logger log = LogManager.getLogger(HomePageLogin.class.getName());
 
     @BeforeMethod
     public void initialise() throws IOException {
@@ -30,7 +30,7 @@ public static Logger log = LogManager.getLogger(HomePageLogin.class.getName());
         LoginPage loginPage = new LoginPage(driver);
         System.out.println(driver.getTitle());
         landingPage.getLogin().click();
-log.info("Navigated to login page");
+        log.info("Navigated to login page");
         loginPage.getUserName().sendKeys(userName);
         loginPage.getPassword().sendKeys(password);
         loginPage.getLogin().click();
@@ -54,6 +54,6 @@ log.info("Navigated to login page");
     public void teardown() {
         log.info("Closing the browser");
         driver.quit();
-        driver=null;
+        driver = null;
     }
 }

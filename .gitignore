@@ -2,3 +2,8 @@
 /target/
 *.iml
 /logs/
+/screenshots/
+
+#exception to the images rule
+!/logs/.gitkeep
+!/screenshots/.gitkeep

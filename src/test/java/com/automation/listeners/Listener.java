@@ -18,7 +18,7 @@ public class Listener extends Base implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult result) {
-        captureScreenshot(result.getTestName());
+        captureScreenshot(result.getName());
     }
 
     @Override

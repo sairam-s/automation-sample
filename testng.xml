@@ -3,12 +3,13 @@
 <suite name="All Test Suite">
     <listeners>
         <listener class-name="com.automation.listeners.Listener"/>
+        <listener class-name="com.automation.report.ExtentReportManager"/>
     </listeners>
     <test verbose="2" preserve-order="true" name="HomePage Login">
         <classes>
             <class name="com.automation.steps.HomePageLogin">
                 <methods>
-                    <include name="homepageNavigation"/>
+                    <include name="homepageLogin"/>
                 </methods>
             </class>
         </classes>

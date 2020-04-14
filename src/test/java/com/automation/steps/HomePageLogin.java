@@ -25,7 +25,7 @@ public class HomePageLogin extends Base {
     }
 
     @Test(dataProvider = "userData")
-    public void homepageNavigation(String userName, String password) {
+    public void homepageLogin(String userName, String password) {
         LandingPage landingPage = new LandingPage(driver);
         LoginPage loginPage = new LoginPage(driver);
         System.out.println(driver.getTitle());

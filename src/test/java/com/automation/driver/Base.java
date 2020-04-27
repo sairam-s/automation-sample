@@ -19,6 +19,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Base {
     private static final String DRIVER_PATH = String.format("%s\\src\\test\\resources\\drivers", System.getProperty("user.dir"));
+    private static final String SCREENSHOT_PATH = String.format("%s\\screenshots\\", System.getProperty("user.dir"));
     public static WebDriver driver;
     public static Logger log = LogManager.getLogger(Base.class.getName());
     public Properties prop = new Properties();
@@ -55,7 +56,7 @@ public class Base {
     public void captureScreenshot(String testName) {
         File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         try {
-            FileUtils.copyFile(src, new File("E:\\Project\\automation-sample\\screenshots\\" + testName + "-screenshot.png"));
+            FileUtils.copyFile(src, new File(SCREENSHOT_PATH + testName + "-screenshot.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }

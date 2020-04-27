@@ -9,14 +9,13 @@ public class LoginPage {
 
     WebDriver driver;
     @FindBy(id = "user_email")
-    WebElement userName;
+    private WebElement userName;
     @FindBy(id = "user_password")
-    WebElement password;
+    private WebElement password;
     @FindBy(xpath = "//input[@value='Log In']")
-    WebElement login;
-
-    @FindBy(css =".alert")
-    WebElement loginError;
+    private WebElement login;
+    @FindBy(css = ".alert")
+    private WebElement loginError;
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
@@ -35,5 +34,7 @@ public class LoginPage {
         return login;
     }
 
-    public WebElement getLoginError(){ return loginError;}
+    public WebElement getLoginError() {
+        return loginError;
+    }
 }

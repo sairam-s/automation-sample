@@ -3,6 +3,7 @@
 *.iml
 /logs/*
 /screenshots/*
+/test-output/*
 
 #exception to the images rule
 !/logs/.gitkeep

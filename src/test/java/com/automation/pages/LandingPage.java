@@ -7,9 +7,9 @@ import org.openqa.selenium.WebElement;
 public class LandingPage {
 
     public WebDriver driver;
-    By login = By.xpath("//span[contains(text(),'Login')]");
-    By navBar = By.cssSelector(".navbar-collapse");
-    By featuredCourseTitle = By.xpath("//h2[contains(text(),'Featured Courses')]");
+    private By login = By.xpath("//span[contains(text(),'Login')]");
+    private By navBar = By.cssSelector(".navbar-collapse");
+    private By featuredCourseTitle = By.xpath("//h2[contains(text(),'Featured Courses')]");
 
     public LandingPage(WebDriver driver) {
         this.driver = driver;
@@ -19,7 +19,11 @@ public class LandingPage {
         return driver.findElement(login);
     }
 
-    public WebElement getNavBar(){ return driver.findElement(navBar);}
+    public WebElement getNavBar() {
+        return driver.findElement(navBar);
+    }
 
-    public WebElement getFeaturedCourseTitle(){ return driver.findElement(featuredCourseTitle);}
+    public WebElement getFeaturedCourseTitle() {
+        return driver.findElement(featuredCourseTitle);
+    }
 }

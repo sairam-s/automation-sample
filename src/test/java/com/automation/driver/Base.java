@@ -8,6 +8,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.io.File;
@@ -34,9 +35,13 @@ public class Base {
         }
 
         log.info("Browser Selected::" + browser);
-        if (browser.equals("chrome")) {
+        if (browser.contains("chrome")) {
             System.setProperty("webdriver.chrome.driver", DRIVER_PATH + "\\chromedriver.exe");
-            driver = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+            if (browser.contains("headless")) {
+                options.addArguments("headless");
+            }
+            driver = new ChromeDriver(options);
         } else if (browser.equals("firefox")) {
             System.setProperty("webdriver.gecko.driver", DRIVER_PATH + "\\geckodriver.exe");
             driver = new FirefoxDriver();

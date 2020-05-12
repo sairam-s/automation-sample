@@ -16,11 +16,11 @@
     </test>
     <test name="HomePage Assertions">
         <classes>
-        <class name="com.automation.steps.HomePageAssertions">
-            <methods>
-                <include name="homepageNavigation"/>
-            </methods>
-        </class>
+            <class name="com.automation.steps.HomePageAssertions">
+                <methods>
+                    <include name="homepageNavigation"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

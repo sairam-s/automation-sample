@@ -4,6 +4,7 @@
 /logs/*
 /screenshots/*
 /test-output/*
+debug.log
 
 #exception to the images rule
 !/logs/.gitkeep

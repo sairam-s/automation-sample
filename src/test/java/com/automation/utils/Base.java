@@ -1,4 +1,4 @@
-package com.automation.driver;
+package com.automation.utils;
 
 
 import org.apache.commons.io.FileUtils;
@@ -17,20 +17,19 @@ import java.io.InputStream;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+
 public class Base {
     private static final String DRIVER_PATH = String.format("%s\\src\\test\\resources\\drivers", System.getProperty("user.dir"));
-    private static final String SCREENSHOT_PATH = String.format("%s\\screenshots\\", System.getProperty("user.dir"));
+    private static final String SCREENSHOT_PATH = String.format("%s\\test-output\\screenshots\\", System.getProperty("user.dir"));
     public static WebDriver driver;
     public static Logger log = LogManager.getLogger(Base.class.getName());
-    public Properties prop = new Properties();
     String browser;
 
     public WebDriver initialiseDriver() throws IOException {
-        InputStream is = getClass()
-                .getClassLoader().getResourceAsStream("application.properties");
-        prop.load(is);
         if (System.getProperty("browser") == null) {
-            browser = prop.getProperty("browser").toLowerCase();
+            browser = getProperty("browser").toLowerCase();
+
+
         } else {
             browser = System.getProperty("browser");
         }
@@ -51,6 +50,14 @@ public class Base {
         }
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         return driver;
+    }
+
+    public String getProperty(String key) throws IOException {
+         Properties prop = new Properties();
+           InputStream is = getClass()
+                  .getClassLoader().getResourceAsStream("application.properties");
+          prop.load(is);
+        return prop.getProperty(key);
     }
 
     public void captureScreenshot(String testName) {

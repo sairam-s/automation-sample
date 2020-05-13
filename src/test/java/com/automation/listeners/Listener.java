@@ -1,14 +1,14 @@
 package com.automation.listeners;
 
-import com.automation.driver.Base;
+import com.automation.utils.Base;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 public class Listener extends Base implements ITestListener {
+
     @Override
     public void onTestStart(ITestResult result) {
-
     }
 
     @Override

@@ -1,33 +1,39 @@
 package com.automation.steps;
 
-import com.automation.driver.Base;
 import com.automation.pages.LandingPage;
 import com.automation.pages.LoginPage;
+import com.automation.utils.Base;
+import com.aventstack.extentreports.testng.listener.ExtentITestListenerClassAdapter;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.io.IOException;
 
+
 public class HomePageLogin extends Base {
     public static Logger log = LogManager.getLogger(HomePageLogin.class.getName());
+WebDriver driver;
+
+
+
 
     @BeforeMethod
     public void initialise() throws IOException {
         driver = initialiseDriver();
         log.info("Driver initialised");
-        driver.get(prop.getProperty("url"));
+        // driver.get(prop.getProperty("url"));
+        driver.get(getProperty("url"));
         log.info("Navigated to landing page");
     }
 
+
     @Test(dataProvider = "userData")
     public void homepageLogin(String userName, String password) {
-        LandingPage landingPage = new LandingPage(driver);
-        LoginPage loginPage = new LoginPage(driver);
+LandingPage landingPage = new LandingPage(driver);
+LoginPage loginPage = new LoginPage(driver);
         System.out.println(driver.getTitle());
         landingPage.getLogin().click();
         log.info("Navigated to login page");
